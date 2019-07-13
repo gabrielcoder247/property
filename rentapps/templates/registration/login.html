@@ -1,0 +1,57 @@
+ <!-- signup with email	 -->
+ <div id="signup-email" class="float-right logins-container">
+        <div class="row">
+                <h6 id="btn-back-signup" class="text-white p-2" style="cursor: pointer;"><i class="fas fa-angle-left mr-2"></i><span style="text-decoration: underline;">Back</span> </h6>
+            </div>
+            <form  action="/accounts/login/" method="post">
+                        <header class="form-row">
+                            <div class="col form-group text-center">
+                                <span class="font-weight-bold text-white">Sign up with Email</span>
+                            </div>
+                        </header>
+
+                        <div class="form-row mt-4">
+                            <div class="col form-group"> 
+                                    {% csrf_token %}
+                                    {{ form.as_ul }} 
+                                  <input type="text" class="form-control" placeholder="First name">
+                            </div> <!-- form-group end.// -->
+                            <div class="col form-group">
+                                  <input type="text" class="form-control" placeholder="Last name ">
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row end.// -->
+                        <div class="form-row mt-2">
+                            <div class="col form-group">   
+                                  <input type="text" class="form-control" placeholder="Enter username">
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-group end.// -->
+                        
+                        <div class="form-row mt-2">
+                            <div class="col form-group">   
+                                  <input type="password" class="form-control" placeholder="Enter Password">
+                            </div> <!-- form-group end.// -->
+                            <div class="col form-group">
+                                  <input type="Password" class="form-control" placeholder="Repeat Password">
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-row end.// -->
+
+                        <div class="form-row mt-2">
+                            <div class="col form-group">   
+                                  <input type="email" class="form-control" placeholder="Enter email">
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-group end.// -->
+                        <div class="form-row mt-2">
+                            <div class="col form-group">   
+                                  <input type="text" class="form-control" placeholder="Repeat email">
+                            </div> <!-- form-group end.// -->
+                        </div> <!-- form-group end.// -->
+                        <div class="form-row mt-2 mb-3">
+                            <div class="col form-group ml-3">   
+                                  <a href="resident-home.html" type="submit" class="btn btn-sm font-weight-bold p-2" style="background-color: rgb(249,223,116);"> Resident signup </a>
+                            </div> <!-- form-group end.// -->
+                            <div class="col form-group">   
+                                  <a href="landlord-dashboard.html" type="submit" class="btn btn-sm font-weight-bold p-2" style="background-color: rgb(249,223,116);"> Landlord signup </a>
+                            </div> <!-- form-group end.// -->  
+                        </div> <!-- form-group// -->                                           
+                    </form>
+        </div>

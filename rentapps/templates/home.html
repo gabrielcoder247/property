@@ -1,0 +1,922 @@
+{% load staticfiles %}
+{% load bootstrap4 %}
+
+<link href="https://fonts.googleapis.com/css?family=Charmonman|Dancing+Script|Kodchasan|Spirax|Abril+Fatface" rel="stylesheet">
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HOME Rent-Ease</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="stylesheet" type="text/css" href="assets/bootstrap-4.3/css/bootstrap.min.css"> -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+	
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'css/index-style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/video-style.css'%}">
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<link rel="stylesheet"  href="{% static 'css/owl/owl.carousel.min.css' %}">
+    <link rel="stylesheet"  href="{% static 'css/owl/owl.theme.default.min.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}"> -->
+    {% block styles %}
+    {% bootstrap_css %}
+
+  {% endblock %}
+
+</head>
+{% block content %}
+
+
+
+<body>
+<div style="overflow-x: hidden;">
+	
+<header>
+ 
+		
+	<nav id="navbar-index" class="navbar navbar-expand-lg navbar-light fixed-top">
+      <a class="navbar-brand" href="#"><img src="{% static 'images/transparent-logo.jpg' %}"></a>
+      <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       
+        <ul id="custom-ul" class="navbar-nav ml-auto pl-sm-4 "> 
+          <li class="nav-item" >
+              <a class="nav-link" href="find-roommate.html">Find a roomate</a>
+          </li>
+        
+        <li class="nav-item dropdown text-white">
+            <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Vendor<i class="fas fa-angle-down ml-2"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item mb-2 mt-0" href="moving-service.html">Moving Services</a>
+              <a class="dropdown-item mt-0" href="cleaning-service.html">Cleaning Services</a>
+            </div>
+          </li>
+
+           <li class="nav-item">
+              <a class="nav-link" href="#" id="btn-login"><i class="fas fa-user-circle mr-1"></i> Login</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link  btn btn-sm btn-signup-index mt-sm-1" id="btn-sign-up" href="#">Signup</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- navbar ends -->
+
+ <div class="video-header wrap">
+  <div class="fullscreen-video-wrap">
+    <video src="{% static 'images/hero-video.mp4' %}" autoplay loop></video>
+  </div>
+  <div class="header-overlay">
+    <div>
+      <div class="row fav-apartment-row">
+      <div class="col-12 text-center padding-lr-0" >
+      	<h1 class="dark-reddish">
+      		<i class="fas fa-angle-left float-left ml-3 yellowish-color"></i>
+		  <a href="" class="typewrite dark-reddish" data-period="2000" data-type='[ "Find your Favourite Apartment in Cananda" ]'>
+		    <span class="wrap"></span>
+		  </a>
+		    <i class="fas fa-angle-right float-right mr-4 yellowish-color"></i>
+		</h1>
+
+
+		<!-- given below code is needed for this text slide -->
+		<section class="d-none">
+			<div class="mycustomSlides "></div>
+
+		<div style="text-align:center" class="d-none"> 
+		  <span class="customdot" onclick="currentSlide(1)"></span> 
+		  <span class="customdot" onclick="currentSlide(2)"></span> 
+		  <span class="customdot" onclick="currentSlide(3)"></span> 
+		</div>
+		</section>
+
+      </div>
+    </div>
+
+    </div>
+    <div id="find-appartment" class="row justify-content-center mt-md-5 mt-4">
+      <div class="col-xl-7 col-lg-9 col-md-10 col-11">
+        
+             <form class="form-inline" action="/action_page.php">
+           
+            <div class="input-group form-group justify-content-center form-group-find" >
+			  <div class="input-group-prepend">
+			    <span class="input-group-text search-icon bg-white border-right-0"><i class="fas fa-search text-muted"></i></span>
+			  </div>
+			  <input type="text" id="search-input" class="form-control border-left-0" aria-label="Amount (to the nearest dollar)" placeholder="Where do you want to live?">
+			  <div class="input-group-append ">
+			    <span class="input-group-text btn-search-wrapper"><a href="find-appartment.html" class="btn btn-search font-weight-bold" >Search</a></span>
+			  </div>
+			</div>
+            
+        </form>         
+    
+      </div>
+
+      <div id="search-result" class="col-xl-7 col-lg-9 col-md-10 col-sm-11 col-9" style=" display: none">
+      	<div class="row">
+      		<div  class="col-12 bg-white pt-2 pb-2 location-wrapper">
+      			<h5 class="text-left pl-sm-3"> <a href="" class="dark-reddish "><i class="fas fa-location-arrow"></i> Your Current Location</a> </h5>
+      			<h6 class="text-left dark-reddish pl-sm-3">We Have got Homes and apartments for you </h6>
+      			<div class="row text-left ">
+      				<div class="col-lg-3 col-md-4 col-sm-4"><h6 ><a href="find-appartment.html" class="dark-brown">Los Vegas</a></h6></div>
+      				<div class="col-lg-3 col-md-4 col-sm-4"><h6><a href="find-appartment.html" class="dark-brown">Atlantic Apartments</a></h6></div>
+      				<div class="col-lg-3 col-md-4 col-sm-4"><h6><a href="find-appartment.html" class="dark-brown">Los Vegas</a></h6></div>
+      				<div class="col-lg-3 col-md-4 col-sm-4"><h6><a href="find-appartment.html" class="dark-brown">Atlantic Apartments</a></h6></div>
+      				<div class="col-lg-3 col-md-4 col-sm-4"><h6><a href="find-appartment.html" class="dark-brown">Los Vegas</a></h6></div>
+      				<div class="col-lg-3 col-md-4 col-sm-4"><h6><a href="find-appartment.html" class="dark-brown">Atlantic Apartments</a></h6></div>
+      				<div class="col-lg-3 col-md-4 col-sm-4"><h6><a href="find-appartment.html" class="dark-brown">Los Vegas</a></h6></div>
+      				<div class="col-lg-3 col-md-4 col-sm-4"><h6><a href="find-appartment.html" class="dark-brown">Atlantic Apartments</a></h6></div>
+      				<div class="col-lg-3 col-md-4 col-sm-4"><h6><a href="find-appartment.html" class="dark-brown">Los Vegas</a></h6></div>
+      				<div class="col-lg-3 col-md-4 col-sm-4"><h6><a href="find-appartment.html" class="dark-brown">Atlantic Apartments</a></h6></div>
+      			</div> 
+      		</div>
+      	</div>
+        
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+<!-- logins hidden phase starts -->
+<div class="header-overlay2">
+
+			<!-- signup -->
+        <div  id="sign-up" class="logins-container float-right">
+        	<div class="row justify-content-center header-mt">
+				<span class="text-white">Sign up to apply for rent in one click!</span>
+        	</div>
+        	<a href="#" id="btn-signup-email" style="text-decoration: none;"> 
+        		<div class="row justify-content-center bg-white mt-3 pb-1 pt-1">
+        		  <h6 class="dark-yellow-color">  Sign up with Email </h6>
+        		</div>
+       		 </a>
+       		 <a href="https://accounts.google.com/ServiceLogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin" style="text-decoration: none;"> 
+        		<div class="row justify-content-center bg-white mt-5 pt-1 pb-1">
+        		 <h6 class="dark-yellow-color">  Sign up with Google </h6>
+        		</div>
+       		 </a>
+       		 <a href="https://www.facebook.com/" style="text-decoration: none;"> 
+        		<div class="row justify-content-center bg-white mt-5 pt-1 pb-1 login-body-mb">
+        		 <h6 class="dark-yellow-color">  Sign up with Facebook </h6>
+        		</div>
+       		 </a>
+
+       		 <div class="row">
+       		 	<img src="assets/images/logo-white.png">
+       		 </div>
+        </div>	
+
+
+		        <!-- Login -->
+        <div  id="login" class="float-right logins-container">
+        	<form>
+	        	<div class="row justify-content-center header-mt">
+					<span class="text-white">Login to apply for rent in one click!</span>
+	        	</div>
+	        	<a href="#" style="text-decoration: none;" id="btn-login-email"> 
+	        		<div class="row justify-content-center bg-white mt-3 pt-1 pb-1">
+	        		  <h6 class="dark-yellow-color">  Login with Email </h6>
+	        		</div>
+	       		 </a>
+	       		 <a href="https://accounts.google.com/ServiceLogin/signinchooser?flowName=GlifWebSignIn&flowEntry=ServiceLogin" style="text-decoration: none;"> 
+	        		<div class="row justify-content-center bg-white mt-5 pt-1 pb-1">
+					<h6 class="dark-yellow-color">  Login with Google </h6>
+	        		</div>
+	       		 </a>
+	       		 <a href="https://www.facebook.com/" style="text-decoration: none;"> 
+	        		<div class="row justify-content-center bg-white mt-5 pt-1 pb-1">
+	        		<h6 class="dark-yellow-color">  Login with Facebook </h6>
+	        		</div>
+	       		 </a>
+
+
+	       		 <div class="row justify-content-center mt-3 mb-5">
+	       		 	<h6 class="font-weight-bold "><a href="#" id="newUser1" class="text-white" style="text-decoration: underline;">New User?</a> </h6>
+	       		 </div>
+	       		 <div class="row">
+	       		 	<img src="assets/images/logo-white.png">
+	       		 </div>
+       		 </form>
+        </div>
+
+
+
+        <!-- signup with email	 -->
+        <div id="signup-email" class="float-right logins-container">
+        	<div class="row">
+       		 	<h6 id="btn-back-signup" class="text-white p-2" style="cursor: pointer;"><i class="fas fa-angle-left mr-2"></i><span style="text-decoration: underline;">Back</span> </h6>
+       		 </div>
+        	<form>
+							<header class="form-row">
+								<div class="col form-group text-center">
+									<span class="font-weight-bold text-white">Sign up with Email</span>
+								</div>
+							</header>
+
+
+							<div class="form-row mt-4">
+								<div class="col form-group">  
+								  	<input type="text" class="form-control" placeholder="First name">
+								</div> <!-- form-group end.// -->
+								<div class="col form-group">
+								  	<input type="text" class="form-control" placeholder="Last name ">
+								</div> <!-- form-group end.// -->
+							</div> <!-- form-row end.// -->
+							<div class="form-row mt-2">
+								<div class="col form-group">   
+								  	<input type="text" class="form-control" placeholder="Enter username">
+								</div> <!-- form-group end.// -->
+							</div> <!-- form-group end.// -->
+							
+							<div class="form-row mt-2">
+								<div class="col form-group">   
+								  	<input type="password" class="form-control" placeholder="Enter Password">
+								</div> <!-- form-group end.// -->
+								<div class="col form-group">
+								  	<input type="Password" class="form-control" placeholder="Repeat Password">
+								</div> <!-- form-group end.// -->
+							</div> <!-- form-row end.// -->
+
+							<div class="form-row mt-2">
+								<div class="col form-group">   
+								  	<input type="email" class="form-control" placeholder="Enter email">
+								</div> <!-- form-group end.// -->
+							</div> <!-- form-group end.// -->
+							<div class="form-row mt-2">
+								<div class="col form-group">   
+								  	<input type="text" class="form-control" placeholder="Repeat email">
+								</div> <!-- form-group end.// -->
+							</div> <!-- form-group end.// -->
+						    <div class="form-row mt-2 mb-3">
+						    	<div class="col form-group ml-3">   
+								  	<a href="resident-home.html" type="submit" class="btn btn-sm font-weight-bold p-2" style="background-color: rgb(249,223,116);"> Resident signup </a>
+								</div> <!-- form-group end.// -->
+								<div class="col form-group">   
+								  	<a href="landlord-dashboard.html" type="submit" class="btn btn-sm font-weight-bold p-2" style="background-color: rgb(249,223,116);"> Landlord signup </a>
+								</div> <!-- form-group end.// -->  
+						    </div> <!-- form-group// -->                                           
+						</form>
+        	</div>
+
+			<!-- Login with email starts -->
+	
+			 <div id="login-email" class=" logins-container float-right">
+        	<div class="row">
+       		 	<h6 id="btn-back-login" class="text-white p-2" style="cursor: pointer;"><i class="fas fa-angle-left mr-2"></i><span style="text-decoration: underline;">Back</span> </h6>
+       		 </div>
+        	<form>
+							<div class="form-row mt-4">
+								<div class="col form-group">   
+								  	<input type="text" class="form-control" placeholder="Enter username" style="border-radius: 20px;     height: calc(1.7em + .75rem + 2px);">
+								</div> <!-- form-group end.// -->
+							</div> <!-- form-group end.// -->
+							
+							<div class="form-row mt-5 mb-4">
+								<div class="col form-group">   
+								  	<input type="password" class="form-control" placeholder="Enter Password" style="border-radius: 20px;     height: calc(1.7em + .75rem + 2px);">
+								</div> <!-- form-group end.// -->
+							</div> <!-- form-row end.// -->
+							
+						    <div class="form-row mt-2 mb-3">
+						    	<div class="col form-group ml-3">   
+								  	<a href="resident-home.html" type="submit" class="btn btn-sm font-weight-bold p-2" style="background-color: rgb(249,223,116);"> Resident login </a>
+								</div> <!-- form-group end.// -->
+								<div class="col form-group">   
+								  	<a href="landlord-dashboard.html" type="submit" class="btn btn-sm font-weight-bold p-2" style="background-color: rgb(249,223,116);"> Landlord login </a>
+								</div> <!-- form-group end.// -->    
+						    </div> <!-- form-group// -->  
+						    <div class="row justify-content-center">
+						    	<div class="col-12 text-center">
+						    		<h6 class="text-white">forget password?</h6>
+						    	</div>
+						    </div> 
+						    <div class="row justify-content-center mt-3 mb-3">
+				       		 	<h6 class="font-weight-bold "><a href="#" id="newUser2" class="text-white" style="text-decoration: underline;">New User?</a> </h6>
+				       		</div>
+				       		<div class="row justify-content-center mb-4">
+				       			<div class="col-12 text-center">
+				       				<img src="assets/images/captcha.png ">
+				       			</div>
+				       		</div>   
+				       		<div class="row">
+				       		 	<img src="assets/images/logo-white.png">
+				       		 </div>                                     
+						</form>
+        </div>
+
+		<!-- Login with email ends -->
+</div>
+<!-- logins hidden phase ends -->
+
+
+</header>
+	
+    <!-- Header ends -->
+    <!-- main body starts -->
+	<main class="container-fluid  pl-0 pr-0 nav-top-margin">
+
+
+	<!-- Featured Appartment row starts -->
+
+	    <div class="row justify-content-center mt-5 pt-5" >
+			<div class="col-12 text-center featured-apartment-head">
+				<h1 class=" dark-reddish font-weight-bold"> 
+					Featured Appartments/Houses
+				</h1>
+				<h5 class="dark-yellow-color">
+					Discover Cheap and affordable accomodation by Location
+				</h5>
+			</div>
+		</div>
+
+<div class="container featured-apartment mt-5">
+	
+<div class="owl-carousel owl-theme">
+    <div class="item ">
+    	<div class="card border-0 " style="width:100%;">
+			<div style="position: relative;">
+				<img class="card-img-top " src="{% static 'images/appartment.jpg' %}" alt="Card image">
+				<a href="" class="btn btn-sm cad-btn">CAD 2500/month</a>						
+				<a href="" class="btn btn-sm view-btn">View Appartment</a>
+			</div> 
+			<div class="card-body text-left">
+				<h5 class="card-title mb-0">House In Kent Street</h5>
+				<p class="card-text">127 Kent Street, Sydney, NSW 2000</p>
+				<h4><span class="font-weight-bold">$1,300</span><span><small>/month</small></span></h4>
+			</div>
+			<div class="card-footer bg-white text-left d-inline">
+			    <div class="float-left  mr-5"><h6><span class="dark-reddish">Beds:</span> <span class="d-block dark-brown">2</span></h6></div>
+				<div class="float-left mr-5"><h6 ><span class="dark-reddish">Baths:</span> <span class="d-block dark-brown">2</span></h6></div>
+				<div class=""><h6 ><span class="dark-reddish">Area:</span> <span class="d-block yellowish-color">800 sq.ft</span></h6></div>
+			</div>
+		</div>
+	</div>
+	<div class="item">
+    	<div class="card border-0 " style="width:100%;">
+			<div style="position: relative;">
+				<img class="card-img-top " src="{% static 'images/appartment.jpg' %}" alt="Card image">
+				<a href="" class="btn btn-sm cad-btn">CAD 2500/month</a>						
+				<a href="" class="btn btn-sm view-btn">View Appartment</a>
+			</div> 
+			<div class="card-body text-left">
+				<h5 class="card-title mb-0">House In Kent Street</h5>
+				<p class="card-text">127 Kent Street, Sydney, NSW 2000</p>
+				<h4><span class="font-weight-bold">$1,300</span><span><small>/month</small></span></h4>
+			</div>
+			<div class="card-footer bg-white text-left d-inline">
+			    <div class="float-left  mr-5"><h6><span class="dark-reddish">Beds:</span> <span class="d-block dark-brown">2</span></h6></div>
+				<div class="float-left mr-5"><h6 ><span class="dark-reddish">Baths:</span> <span class="d-block dark-brown">2</span></h6></div>
+				<div class=""><h6 ><span class="dark-reddish">Area:</span> <span class="d-block yellowish-color">800 sq.ft</span></h6></div>
+			</div>
+		</div>
+	</div>
+	<div class="item">
+    	<div class="card border-0 " style="width:100%;">
+			<div style="position: relative;">
+				<img class="card-img-top " src="{% static 'images/appartment.jpg' %}" alt="Card image">
+				<a href="" class="btn btn-sm cad-btn">CAD 2500/month</a>						
+				<a href="" class="btn btn-sm view-btn">View Appartment</a>
+			</div> 
+			<div class="card-body text-left">
+				<h5 class="card-title mb-0">House In Kent Street</h5>
+				<p class="card-text">127 Kent Street, Sydney, NSW 2000</p>
+				<h4><span class="font-weight-bold">$1,300</span><span><small>/month</small></span></h4>
+			</div>
+			<div class="card-footer bg-white text-left d-inline">
+			    <div class="float-left  mr-5"><h6><span class="dark-reddish">Beds:</span> <span class="d-block dark-brown">2</span></h6></div>
+				<div class="float-left mr-5"><h6 ><span class="dark-reddish">Baths:</span> <span class="d-block dark-brown">2</span></h6></div>
+				<div class=""><h6 ><span class="dark-reddish">Area:</span> <span class="d-block yellowish-color">800 sq.ft</span></h6></div>
+			</div>
+		</div>
+	</div>
+	<div class="item">
+    	<div class="card border-0 " style="width:100%;">
+			<div style="position: relative;">
+				<img class="card-img-top " src="{% static 'images/appartment.jpg' %}" alt="Card image">
+				<a href="" class="btn btn-sm cad-btn">CAD 2500/month</a>						
+				<a href="" class="btn btn-sm view-btn">View Appartment</a>
+			</div> 
+			<div class="card-body text-left">
+				<h5 class="card-title mb-0">House In Kent Street</h5>
+				<p class="card-text">127 Kent Street, Sydney, NSW 2000</p>
+				<h4><span class="font-weight-bold">$1,300</span><span><small>/month</small></span></h4>
+			</div>
+			<div class="card-footer bg-white text-left d-inline">
+			    <div class="float-left  mr-5"><h6><span class="dark-reddish">Beds:</span> <span class="d-block dark-brown">2</span></h6></div>
+				<div class="float-left mr-5"><h6 ><span class="dark-reddish">Baths:</span> <span class="d-block dark-brown">2</span></h6></div>
+				<div class=""><h6 ><span class="dark-reddish">Area:</span> <span class="d-block yellowish-color">800 sq.ft</span></h6></div>
+			</div>
+		</div>
+	</div>
+	<div class="item">
+    	<div class="card border-0" style="width:100%;">
+			<div style="position: relative;">
+				<img class="card-img-top " src="{% static 'images/appartment.jpg' %}" alt="Card image">
+				<a href="" class="btn btn-sm cad-btn">CAD 2500/month</a>						
+				<a href="" class="btn btn-sm view-btn">View Appartment</a>
+			</div> 
+			<div class="card-body text-left">
+				<h5 class="card-title mb-0">House In Kent Street</h5>
+				<p class="card-text">127 Kent Street, Sydney, NSW 2000</p>
+				<h4><span class="font-weight-bold">$1,300</span><span><small>/month</small></span></h4>
+			</div>
+			<div class="card-footer bg-white text-left d-inline">
+			    <div class="float-left  mr-5"><h6><span class="dark-reddish">Beds:</span> <span class="d-block dark-brown">2</span></h6></div>
+				<div class="float-left mr-5"><h6 ><span class="dark-reddish">Baths:</span> <span class="d-block dark-brown">2</span></h6></div>
+				<div class=""><h6 ><span class="dark-reddish">Area:</span> <span class="d-block yellowish-color">800 sq.ft</span></h6></div>
+			</div>
+		</div>
+	</div>
+	<div class="item">
+    	<div class="card border-0 " style="width:100%;">
+			<div style="position: relative;">
+				<img class="card-img-top " src="{% static 'images/appartment.jpg' %}" alt="Card image">
+				<a href="" class="btn btn-sm cad-btn">CAD 2500/month</a>						
+				<a href="" class="btn btn-sm view-btn">View Appartment</a>
+			</div> 
+			<div class="card-body text-left">
+				<h5 class="card-title mb-0">House In Kent Street</h5>
+				<p class="card-text">127 Kent Street, Sydney, NSW 2000</p>
+				<h4><span class="font-weight-bold">$1,300</span><span><small>/month</small></span></h4>
+			</div>
+			<div class="card-footer bg-white text-left d-inline">
+			    <div class="float-left  mr-5"><h6><span class="dark-reddish">Beds:</span> <span class="d-block dark-brown">2</span></h6></div>
+				<div class="float-left mr-5"><h6 ><span class="dark-reddish">Baths:</span> <span class="d-block dark-brown">2</span></h6></div>
+				<div class=""><h6 ><span class="dark-reddish">Area:</span> <span class="d-block yellowish-color">800 sq.ft</span></h6></div>
+			</div>
+		</div>
+	</div>
+  
+</div>
+</div>
+	
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+		<!-- features -->
+		<section id="feature" class="feature feature-1 text-center bg-white ">
+        
+            <div class="container">
+        
+                <div class="row">
+        
+                    <div class="col-12 col-sm-12 col-md-12  mt-3">
+        
+                        <div class="heading heading-2 text-center ">
+        
+                            <h2 class="heading--title ">Simple Steps</h2>
+        
+                            <p class="heading--desc ">Duis aute irure dolor in reprehed in volupted velit esse dolore</p>
+        
+                        </div>
+        
+                        <!-- .heading-title end -->
+        
+                    </div>
+                    <!-- .col-md-12 end -->
+        
+                </div>
+        
+                <!-- .row end -->
+        
+                <div class="row">
+        
+                    <!-- feature Panel #1 -->
+        
+                    <div class="col-12 col-sm-4 col-md-4">
+        
+                        <div class="feature-panel">
+        
+                            <div class="feature--icon">
+        
+                                <img src="{% static 'images/feature-apartment.jpg' %}" alt="icon img">
+        
+                            </div>
+        
+                            <div class="feature--content">
+        
+                                <h3>Search For Apartment</h3>
+        
+                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eule pariate.</p>
+        
+                            </div>
+        
+                        </div>
+        
+                        <!-- .feature-panel end -->
+        
+                    </div>
+        
+                    <!-- .col-md-4 end -->
+        
+                    <!-- feature Panel #2 -->
+        
+                    <div class="col-12 col-sm-4 col-md-4 mt-sm-0 mt-5">
+        
+                        <div class="feature-panel">
+        
+                            <div class="feature--icon">
+                                <img src="{% static 'images/feature-favourite.jpg' %} " alt="icon img">
+        
+                            </div>
+        
+                            <div class="feature--content">
+        
+                                <h3>Select Your Favorite</h3>
+        
+                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eule pariate.</p>
+        
+                            </div>
+        
+                        </div>
+        
+                        <!-- .feature-panel end -->
+        
+                    </div>
+        
+                    <!-- .col-md-4 end -->
+        
+                    <!-- feature Panel #3 -->
+        
+                    <div class="col-12 col-sm-4 col-md-4 mt-sm-0 mt-5">
+        
+                        <div class="feature-panel feature-panel2">
+        
+                            <div class="feature--icon">
+        
+                                <img src="{% static 'images/feature-key.jpg' %} " alt="icon img">
+        
+                            </div>
+        
+                            <div class="feature--content">
+        
+                                <h3>Take Your Key</h3>
+        
+                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eule pariate.</p>
+        
+                            </div>
+        
+                        </div>
+        
+                        <!-- .feature-panel end -->
+        
+                    </div>
+        
+                    <!-- .col-md-4 end -->
+        
+                </div>
+        
+                <!-- .row end -->
+        
+            </div>
+        
+            <!-- .container end -->
+        
+        </section>
+
+
+
+		<!-- City Properties -->
+		
+		<section id="city-property" class="city-property text-center">
+           
+            <div class="container">
+           
+                <div class="row">
+           
+                    <div class="col-12 col-sm-12 col-md-12">
+           
+                        <div class="heading heading-2 text-center mb-5 pb-4">
+           
+                            <h1 class=" dark-reddish font-weight-bold"> 
+								Top Places to Live in Cananda
+							</h1>
+							<h4 class="dark-yellow-color">
+								Discover Cheap and affordable accomodation by Location
+							</h4>
+           
+                        </div>
+           
+                        <!-- .heading-title end -->
+           
+                    </div>
+           
+                    <!-- .col-md-12 end -->
+           
+                </div>
+           
+                <!-- .row end -->
+           
+                <div class="row">
+           
+                    <!-- City #1 -->
+           
+                    <div class="col-12 col-sm-8 col-md-8">
+           
+                        <div class="property-city-item">
+           
+                            <div class="property--city-img img-hover">
+           
+                                <a href="#">
+           
+                                    <img  src="assets/images/city1.jpg" alt="city" class="img-responsive">
+           
+                                    <div class="property--city-overlay">
+           
+                                        <div class="property--item-content">
+           
+                                            <h5 class="property--title">Montreal</h5>
+           
+                                            <p class="property--numbers">16 Properties</p>
+           
+                                        </div>
+           
+                                    </div>
+            
+                                </a>
+            
+                            </div>
+            
+                            <!-- .property-city-img end -->
+            
+                        </div>
+            
+                        <!-- . property-city-item end -->
+            
+                    </div>
+            
+                    <!-- .col-md-8 end -->
+            
+                    <!-- City #2 -->
+            
+                    <div class="col-12 col-sm-4 col-md-4">
+            
+                        <div class="property-city-item">
+            
+                            <div class="property--city-img img-hover">
+            
+                                <a href="#">
+            
+                                    <img src="assets/images/city2.jpg" alt="city" class="img-responsive">
+            
+                                    <div class="property--city-overlay">
+            
+                                        <div class="property--item-content">
+            
+                                            <h5 class="property--title">Vancouver</h5>
+            
+                                            <p class="property--numbers">14 Properties</p>
+            
+                                        </div>
+            
+                                    </div>
+            
+                                </a>
+            
+                            </div>
+            
+                            <!-- .property-city-img end -->
+            
+                        </div>
+            
+                        <!-- . property-city-item end -->
+            
+                    </div>
+            
+                    <!-- .col-md-8 end -->
+            
+                </div>
+            
+                <!-- .row end -->
+            
+                <div class="row">
+
+
+                    
+
+                    <!-- City #3 -->
+
+                    <div class="col-12 col-sm-4 col-md-4">
+
+                        <div class="property-city-item">
+
+                            <div class="property--city-img img-hover">
+
+                                <a href="#">
+
+                                    <img src="assets/images/city3.jpg" alt="city" class="img-responsive">
+
+                                    <div class="property--city-overlay">
+
+                                        <div class="property--item-content">
+
+                                            <h5 class="property--title">Ontario</h5>
+
+                                            <p class="property--numbers">18 Properties</p>
+
+                                        </div>
+
+                                    </div>
+
+                                </a>
+
+                            </div>
+
+                            <!-- .property-city-img end -->
+
+                        </div>
+
+                        <!-- . property-city-item end -->
+
+                    </div>
+
+                    <!-- .col-md-8 end -->
+
+                    <!-- City #4 -->
+
+                    <div class="col-12 col-sm-8 col-md-8">
+
+                        <div class="property-city-item">
+
+                            <div class="property--city-img img-hover">
+
+                                <a href="#">
+
+                                    <img src="assets/images/city4.jpg" alt="city" class="img-responsive">
+
+                                    <div class="property--city-overlay">
+
+                                        <div class="property--item-content">
+
+                                            <h5 class="property--title">Banff</h5>
+
+                                            <p class="property--numbers">10 Properties</p>
+
+                                        </div>
+
+                                    </div>
+
+                                </a>
+
+                            </div>
+
+                            <!-- .property-city-img end -->
+
+                        </div>
+
+                        <!-- . property-city-item end -->
+
+                    </div>
+
+                    <!-- .col-md-8 end -->
+
+                </div>
+
+                <!-- .row end -->
+
+            </div>
+
+            <!-- .container end -->
+
+        </section>
+
+
+		
+
+		<section class="roommate d-flex mt-5 ">
+			<div class="color-layer">
+				<div class="row justify-content-center h-100" >
+					<div class="col-12 text-center my-auto looking-roommate">
+						<h1 class="" style="color: #fff700;">Are you looking for a Roommate?</h1>
+						<div class="col-12 text-center mx-auto">
+							<a href="find-roommate.html" class="btn btn-sm dark-reddish font-weight-bold">Find Roommate Here</a>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</section>
+  
+			
+        	
+
+	</main>
+
+
+  		<!-- footer starts -->
+	<footer id="footer" class="continer">
+	
+		<div class="row justify-content-center row-custom" >
+				<div class="col-4 ">
+					<h4 class="text-muted pb-2">RentEase</h4>
+					<span>
+	          			<h5>Lorem ipsum dolor amet sit</h5>
+	          			<h5>Lorem ipsum dolor amet sit</h5>
+          			</span>
+				</div>
+          		
+          		<div class="col-4 text-center">
+          			<h4 class="text-muted pb-2">Usefull Links</h4>
+          			<span>
+	          			<a href=""><h5>Vendors</h5></a>
+	          			<a href=""><h5>Contact Us</h5></a>
+	          			<a href=""><h5>FAQ</h5></a>
+	          			<a href=""><h5>About Us</h5></a>	
+          			</span>
+          		</div>
+ 				
+ 				<div class="col-4 text-right tumblr-icon-head-p">
+          			<h4 class="text-muted pb-2 respon-h4">We are social</h4>
+          			<span>
+	          			<h5>
+	          				<a href=""><i class="fab fa-facebook-f text-muted"></i></a>
+	          				<a href=""><i class="fab fa-tumblr text-muted tumblr-icon"></i></a>
+	          				<a href=""><i class="fab fa-linkedin-in text-muted "></i></a>		
+	          			</h5>
+          			</span>
+          		</div>       		
+		</div>
+		<div class="row">
+			<div class="col-12 mt-lg-0 mt-3">
+			<h6 class="text-muted"><i class="far fa-copyright"></i> RentEase 2018. All rights Reserved</h6>
+			</div>
+		</div>	
+			
+					
+	</footer>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script type="text/javascript" src="assets/bootstrap-4.3\js\bootstrap.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/myScript.js' %}"></script>
+<!-- <link rel="stylesheet" href="{% static 'css/animate.css' %}"> -->
+<script src="{% static 'js/indexScript.js' %}"></script>
+<script src="  {% static 'js/owl.carousel.min.js' %}"></script>
+
+<script type="text/javascript">
+	$('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    autoplay:true,
+    nav:false,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+          
+        },
+        768:{
+            items:2,
+            
+        },
+        992:{
+            items:3,
+            
+            loop:false
+        }
+    }
+});
+</script>
+
+{% block scripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+{% bootstrap_javascript %}
+{% endblock %}
+
+</body>
+</html>
+
+{% endblock %}
