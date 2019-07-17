@@ -2,12 +2,20 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.views import login
-from . models import *
+from rest_framework import status
+from .models import *
 # from .email import send_welcome_email
-from .forms import NewProfileForm,SignUpForm
+from .forms import *
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
+
+
+# DRF import settings
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .models import  *
+from .serializer import ProfileSerializer,UserSerializer
 
 
 # Create your views here.
@@ -31,7 +39,7 @@ def signup(request):
 			user.save()
 			username = form.cleaned_data.get('username')
 			raw_password = form.cleaned_data.get('password1')
-			user = authenticate(username =username, password=raw_password)
+			user = authenticate(username =username, password=raw_password, form=form)
 			login(request, user)
 		return redirect('home_page')
 	else:
@@ -53,4 +61,35 @@ def profile(request, profile_id):
 
 	return render(request, 'profile/profile.html', {"current_profile":current_profile,"images":images, "follows":follows, "is_follow":is_follow, "following":following, "followers":followers})
 
-    
+
+class UserList(APIView):
+    def get(self, request, format=None):
+        user = User.objects.all()
+        serializers = UserSerializer(user, many=True)
+        return Response(serializers.data)
+
+	
+def postUser(self, request, format=None):
+    serializers = UserSerializer(data=request.data)
+    if serializers.is_valid():
+        serializers.save()
+        return Response(serializers.data, status=status.HTTP_201_CREATED)
+    return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)		
+	
+
+	
+	
+ 
+class ProfileList(APIView):
+    def get(self, request, format=None):
+        profile = Profile.objects.all()
+        serializers = ProfileSerializer(profile, many=True)
+        return Response(serializers.data)
+
+def postProfile(self, request, format=None):
+    serializers = ProfileSerializer(data=request.data)
+    if serializers.is_valid():
+        serializers.save()
+        return Response(serializers.data, status=status.HTTP_201_CREATED)
+    return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)		
+   

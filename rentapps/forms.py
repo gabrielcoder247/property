@@ -1,12 +1,12 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import *
+from .models import Profile
 
 
 class SignUpForm(UserCreationForm):
-    name = forms.CharField(max_length=30)
-    username= forms.CharField(max_length=30)
+    name = forms.CharField(max_length=30,  required=False, help_text='Optional.')
+    username= forms.CharField(max_length=30,required=False, help_text='Optional.')
     email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
   
 
@@ -24,24 +24,3 @@ class NewProfileForm(forms.ModelForm):
         }
 
 
-
-# class NewImageForm(forms.ModelForm):
-# 	class Meta:
-# 		model = Image
-# 		fields = ['name', 'caption', 'image_path','profile']
-        
-        
-
-
-
-# class CommentForm(forms.ModelForm):
-#     class Meta:
-#         model = Comments
-#         fields = ('comment',)
-#         exclude = ['user','post']
-
-# class LikesForm(forms.ModelForm):
-#     class Meta:
-#         model=Likes
-#         exclude=['user']
-        fields=[]         		

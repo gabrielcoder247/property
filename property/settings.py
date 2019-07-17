@@ -41,13 +41,23 @@ INSTALLED_APPS = [
     'registration', # add in the registration package
     'bootstrap4',
     'allauth',
+    'rest_framework',
+    'rest_framework.authtoken',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
     'django.contrib.sites',
+   
 
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
